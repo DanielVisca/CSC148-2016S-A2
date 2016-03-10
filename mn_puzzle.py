@@ -85,18 +85,35 @@ class MNPuzzle(Puzzle):
         return from_grid == to_grid
 #Extension helper functions
     
-    def swap_left(self):
-     """
-     Swap the character that is on the right of "*" with "*"
-     
-     >>> MNPuzzle((("2", "*", "1"),("3", "4", "5")),(("1", "2", "3"),
-        ("4", "5", "*")))
-     >>> MNPuzzle.swap_left()
-     >>> Print(MNPuzzle)
-     (("2","1", "*"),("3", "4", "5")),(("1", "2", "3"),("4", "5", "*"))
-    """
-     
-    
+    def empty_index(self):
+        """
+        Return the index of the character "*" in from_grid
+        
+        >>> MNPuzzle((("2", "*", "1"),("3", "4", "5")),(("1", "2", "3"),
+           ("4", "5", "*")))
+        >>> MNPuzzle.empty_index
+#Finish example when I know what it should look like
+        
+        """
+        the_row = 0
+        for row in from_grid:
+            if "*" in row:
+                index = row.index("*")
+                return '[{}][{}]'.format(the_row, index)
+            else:
+                 the_row += 1
+#How can I represent this as something other than a str?
+ 
+     def swap_left(self)
+       """
+       If there is a character to the right of "*" swap it with "*"
+       
+       >>> MNPuzzle((("2", "*", "1"),("3", "4", "5")),(("1", "2", "3"),
+          ("4", "5", "*")))
+       >>> MNPuzzle.swap_left()
+       >>> Print(MNPuzzle)
+       (("2","1", "*"),("3", "4", "5")),(("1", "2", "3"),("4", "5", "*"))
+       """       
     
     # legal extensions are configurations that can be reached by swapping one
     # symbol to the left, right, above, or below "*" with "*"
