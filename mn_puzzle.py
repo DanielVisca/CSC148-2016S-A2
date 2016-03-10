@@ -1,4 +1,4 @@
-from puzzle import Puzzle
+ from puzzle import Puzzle
 
 
 class MNPuzzle(Puzzle):
@@ -71,9 +71,32 @@ class MNPuzzle(Puzzle):
         @type self: MNPuzzle
         @rtype: bool
         
-#Place example of a solved MNPuzzle and an unsolved MNPuzzle
-        """
+        >>> from_grid = (("1", "2", "3"), ("4", "5", "*"))
+        >>> to_grid = (("1", "2", "3"), ("4", "5", "*"))
+        >>> MNPPuzzle(from_grid, to_grid)
+        >>> MNPuzzle.is_solved()
+        True
         
+        >>> MNPuzzle((("2", "*", "1"),("3", "4", "5")),(("1", "2", "3"),
+        ("4", "5", "*")))
+        >>> MNPuzzle.is_solved()
+        False
+        """
+        return from_grid == to_grid
+#Extension helper functions
+    
+    def swap_left(self):
+     """
+     Swap the character that is on the right of "*" with "*"
+     
+     >>> MNPuzzle((("2", "*", "1"),("3", "4", "5")),(("1", "2", "3"),
+        ("4", "5", "*")))
+     >>> MNPuzzle.swap_left()
+     >>> Print(MNPuzzle)
+     (("2","1", "*"),("3", "4", "5")),(("1", "2", "3"),("4", "5", "*"))
+    """
+     
+    
     
     # legal extensions are configurations that can be reached by swapping one
     # symbol to the left, right, above, or below "*" with "*"
