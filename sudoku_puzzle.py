@@ -183,6 +183,17 @@ class SudokuPuzzle(Puzzle):
 
     # TODO
     # override fail_fast
+    def fail_fast(self):
+        """
+        Return True if Puzzle self can never be extended to a solution.    
+        
+        @type self: Puzzle
+        @rtype: bool
+#Give examples
+        """
+     # Mine   for m in range(n):
+#To clarify, am I suppose to make a function that checks every number in range(n) that is not already in the column, row, and subsquare for every position in range(n) of column, row, and subsquare and see if any of them wont work??            
+        
     # Notice that it is not possible to complete a sudoku puzzle if there
     # is one open position that has no symbols available to put in it.  In
     # other words, if there is one open position where the symbols already used

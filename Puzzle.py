@@ -9,7 +9,7 @@ class Puzzle:
         Return True if Puzzle self can never be extended to a solution.
 
         Override this in a subclass where you can determine early that
-        this Puzzle cann't be solved.
+        this Puzzle can't be solved.
 
         @type self: Puzzle
         @rtype: bool
