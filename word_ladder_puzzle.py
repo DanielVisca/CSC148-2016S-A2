@@ -24,6 +24,24 @@ class WordLadderPuzzle(Puzzle):
 
         # TODO
         # implement __eq__ and __str__
+        def __eq__(self, other):
+            """
+            @type self: WordLadderPuzzle
+            @type: object
+            @rtype: bool
+            
+            Return True if other is equal to self, otherwise return False
+            
+            >>> WordLadderPuzzle('ohno','popo','dunno')
+            >>> other = WordLadderPuzzle('notthisone','nottrue','words')
+            >>> WordLadderPuzzle.__eq__(other)
+            False
+            
+            >>> WordLadderPuzzle('ohno','popo','dunno')
+            >>> other = WordLadderPuzzle('ohno','popo','dunno')
+            >>> WordLadderPuzzle.__eq__(other)
+            True
+            """
         # __repr__ is up to you
 
         # TODO
@@ -63,7 +81,7 @@ class WordLadderPuzzle(Puzzle):
                     if from_word[i] != new_word[i] and new_word[i] in \
                        self._chars:
                         letters_diff += 1
-                if letters_dif < 2:
+                if letters_d
                     from_word = new_word
                     
             

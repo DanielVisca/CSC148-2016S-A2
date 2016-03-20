@@ -1,4 +1,4 @@
-from puzzle import Puzzle
+from Puzzle import Puzzle
 
 
 class SudokuPuzzle(Puzzle):
@@ -182,7 +182,8 @@ class SudokuPuzzle(Puzzle):
                  for d in allowed_symbols])
 
     # TODO
-    # override fail_fast
+    # override fail_fast#TROUBLE TROUBBLE!!
+#Testing this has been a real bitch. I dont think it will work as is    
     def fail_fast(self):
         """
         Return True if Puzzle self can never be extended to a solution.    
@@ -190,7 +191,41 @@ class SudokuPuzzle(Puzzle):
         @type self: Puzzle
         @rtype: bool
 #Give examples
+        
+        >>> A = ['1','2','2','1']
+        >>> x = {'1','2'}
+        >>> SudokuPuzzle(2, A, x)
+        >>> SudokuPuzzle.failfast
+#is this how I call this function?
+        False
+        
+        >>> A = ['1','2','2','1']
+        >>> x = {'1','2'}
+        >>> SudokuPuzzle(2, A, x)
+        >>> SudokuPuzzle.failfast
         """
+#Did I write this to check if it can be completed in the future r if it is completed now?
+        #set index
+        for i in range(self.n):
+#probably a more effecient way with a lot less for loops
+            
+            #creat a list of the unused symols
+            copy = symbol_set.copy()
+            for char_row in _row_set(i):
+                copy.remove(char_row)
+            for char_col in _column_set(i):
+                copy.remove(char_col)
+            for char_square in _subsquare_set(i):
+                copy.remove(char_square)
+            if len(copy) == 0:
+                return False
+            
+        return True
+                #remove the character from its place then check if it is still in the set
+ #there exists a better way to check for duplicates
+
+                
+                
      # Mine   for m in range(n):
 #To clarify, am I suppose to make a function that checks every number in range(n) that is not already in the column, row, and subsquare for every position in range(n) of column, row, and subsquare and see if any of them wont work??            
         
