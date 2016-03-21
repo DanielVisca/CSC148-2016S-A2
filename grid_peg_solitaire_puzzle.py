@@ -26,16 +26,70 @@ class GridPegSolitairePuzzle(Puzzle):
 
     # TODO
     # implement __eq__, __str__ methods
+    def __eq__(self, other):
+        """
+        @type self: GridPegSolitairePuzzle
+        @type: object
+        @rtype: bool
+        
+        Return True if other is equal to sekf, otherwise return False
+        
+        >>>  self = [["*", "*", "*", "*", "*"],["*", "*", "*", "*", "*"], \
+        ["*", "*", "*", "*", "*"],["*", "*", ".", "*", "*"], \
+        ["*", "*", "*", "*", "*"]]
+        >>>  other = [["*", "*", "*", "*", "*"],["*", "*", "*", "*", "*"], \
+        ["*", "*", "*", "*", "*"],["*", "*", ".", "*", "*"], \
+        ["*", "*", "*", "*", "*"]]
+        >>> GridPegSolitairePuzzle.__eq__(self, other)
+        True
+        
+        >>>  self = [["*", "*", "*", "*", "*"],["*", "*", "*", "*", "*"], \
+        ["*", "*", "*", "*", "*"],["*", "*", ".", "*", "*"], \
+        ["*", "*", "*", "*", "*"]]
+        >>>  other = [["*", ".", "*", "*", "*"],["*", "*", "*", "*", "*"], \
+        ["*", "*", "*", "*", "*"],["*", "*", ".", "*", "*"], \
+        ["*", "*", "*", "*", "*"]]
+        >>> GridPegSolitairePuzzle.__eq__(self, other)
+        False
+        """
+        return self == other
+#maybe check types as well?
+    
+    def __str__(self):
+        """
+        @type self: GridPegSolitairePuzzle
+        @rtype: str
+        
+        Return a string representation of self
+        
+        >>> GridPegSolitairePuzzle([["*", "*", "*", "*", "*"],["*", "*", "*", \
+        "*", "*"], \
+        ["*", "*", "*", "*", "*"],["*", "*", ".", "*", "*"], \
+        ["*", "*", "*", "*", "*"]], {['.','*']})
+        >>> GridPegSolitairePuzzle.__str__()
+        '[["*", "*", "*", "*", "*"],["*", "*", "*", "*", "*"], \
+        ["*", "*", "*", "*", "*"],["*", "*", ".", "*", "*"], \
+        ["*", "*", "*", "*", "*"]], {['.','*']}'
+        """
+        return '{},{}'.format(self._marker, self._marker_set)
+    
     # __repr__ is up to you
 
     # TODO
     # override extensions
     # legal extensions consist of all configurations that can be reached by
     # making a single jump from this configuration
-
+    def extensions(self):
+        """
+        """
+        pass
     # TODO
     # override is_solved
     # A configuration is solved when there is exactly one "*" left
+    def is_solved(self):
+        """
+        """
+        pass
 
 
 if __name__ == "__main__":

@@ -42,13 +42,28 @@ class WordLadderPuzzle(Puzzle):
             >>> WordLadderPuzzle.__eq__(other)
             True
             """
+            return self == other
+#Should I check the type and whatnot?
+        def __str__(self):
+            """
+            @type self: WordLadderPuzzle
+            @rtype: str
+            
+            Return a string representation of self
+            """
+            return 'from_word: {}, to_word: {}, ws: {}'.format(from_word, 
+                                                               to_word, ws)
+#Should I put examples for str? I think yes
+            
         # __repr__ is up to you
 
         # TODO
         # override extensions
         # legal extensions are WordPadderPuzzles that have a from_word that can
         # be reached from this one by changing a single letter to one of those
-        # in self._chars     
+        # in self._chars
+        
+#Is this function doing what it is suppose to?
 #needs to be tested
         def extension(self, new_word):
             """
@@ -81,7 +96,7 @@ class WordLadderPuzzle(Puzzle):
                     if from_word[i] != new_word[i] and new_word[i] in \
                        self._chars:
                         letters_diff += 1
-                if letters_d
+                if letters_diff < 2:
                     from_word = new_word
                     
             

@@ -104,20 +104,20 @@ class MNPuzzle(Puzzle):
                  the_row += 1
 #How can I represent this as something other than a str?
  
-     def swap_left(self)
-       """
-       If there is a character to the right of "*" swap it with "*"
+     def swap_left(self):
+         """
+         If there is a character to the right of "*" swap it with "*"
        
-       >>> MNPuzzle((("2", "*", "1"),("3", "4", "5")),(("1", "2", "3"),
+         >>> MNPuzzle((("2", "*", "1"),("3", "4", "5")),(("1", "2", "3"),
           ("4", "5", "*")))
-       >>> MNPuzzle.swap_left()
-       >>> Print(MNPuzzle)
-       (("2","1", "*"),("3", "4", "5")),(("1", "2", "3"),("4", "5", "*"))
-       """       
+         >>> MNPuzzle.swap_left()
+         >>> Print(MNPuzzle)
+         (("2","1", "*"),("3", "4", "5")),(("1", "2", "3"),("4", "5", "*"))
+         """       
     
     # legal extensions are configurations that can be reached by swapping one
     # symbol to the left, right, above, or below "*" with "*"
-
+ 
     # TODO
     # override is_solved
     # a configuration is solved when from_grid is the same as to_grid

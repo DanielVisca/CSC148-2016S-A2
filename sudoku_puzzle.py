@@ -190,42 +190,60 @@ class SudokuPuzzle(Puzzle):
         
         @type self: Puzzle
         @rtype: bool
-#Give examples
         
-        >>> A = ['1','2','2','1']
-        >>> x = {'1','2'}
-        >>> SudokuPuzzle(2, A, x)
-        >>> SudokuPuzzle.failfast
-#is this how I call this function?
+        >>> the_grid = ['1','2','3','4','3','4','1','2','2','1','4','3','4','3','2','*']
+        >>> puzzle = SudokuPuzzle(4, the_grid, {'1','2','3','4'})
+        >>> puzzle.fail_fast()
         False
         
-        >>> A = ['1','2','2','1']
-        >>> x = {'1','2'}
-        >>> SudokuPuzzle(2, A, x)
-        >>> SudokuPuzzle.failfast
+        >>> the_grid = ['1','2','3','1','3','4','1','2','2','1','4','3','4','3','2','*']
+        >>> puzzle = SudokuPuzzle(4, the_grid, {'1','2','3','4'})
+        >>> puzzle.failfast()
+        True
         """
+#EXAMPLE ISSUES        
+#ISSUES. I i is wrong, this sucks
+
 #Did I write this to check if it can be completed in the future r if it is completed now?
         #set index
-        for i in range(self.n):
+        
+        for i in range(self._n):
 #probably a more effecient way with a lot less for loops
-            
+        
             #creat a list of the unused symols
-            copy = symbol_set.copy()
-            for char_row in _row_set(i):
-                copy.remove(char_row)
-            for char_col in _column_set(i):
-                copy.remove(char_col)
-            for char_square in _subsquare_set(i):
-                copy.remove(char_square)
-            if len(copy) == 0:
-                return False
+            copy_row, copy_col, copy_square = self._symbol_set.copy(), \
+            self._symbol_set.copy(), self._symbol_set.copy()
+        
+            for char_row in self._row_set(i):
+                if char_row in copy_row:
+                    copy_row.remove(char_row)
+                else:
+                    return True
+                
+            for char_col in self._column_set(i):
+                if char_col in copy_col:
+                    copy_col.remove(char_col)
+                else:
+                    return True
+            
+            #take the symbols that are in both
+            common = {}
+            for i in copy_col:
+                if i in copy_row:
+                    common.append(i)     
+                    
+            
+    
+            for char_square in self._subsquare_set(i):
+                
+                if char_square in common:
+                    return False
             
         return True
                 #remove the character from its place then check if it is still in the set
  #there exists a better way to check for duplicates
 
-                
-                
+
      # Mine   for m in range(n):
 #To clarify, am I suppose to make a function that checks every number in range(n) that is not already in the column, row, and subsquare for every position in range(n) of column, row, and subsquare and see if any of them wont work??            
         
